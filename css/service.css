@@ -1,0 +1,443 @@
+﻿
+* {
+  -moz-box-sizing:border-box;
+  -webkit-box-sizing:border-box;
+  box-sizing:border-box;
+}
+
+
+body
+{
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-weight:normal;
+	font-size:100%;
+    -webkit-font-smoothing: antialiased;
+	-moz-font-smoothing: antialiased;
+	font-smoothing: antialiased;
+	vertical-align:baseline;
+	
+}
+
+a
+{
+    text-decoration:none;
+    outline:none;
+     -webkit-transition: all 400ms ease-in-out;
+    -moz-transition: all 400ms ease-in-out;
+    -o-transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out;
+}
+
+a:hover, a:active { outline: none; }
+
+
+.no-touch a:hover,
+.no-touch a:active {
+	color: #333;
+}
+
+.container {
+	height: 100%;
+	position: relative;
+}
+
+.container > section {
+	min-height: 100%;
+	margin: 0 auto;
+	padding: 10em 3em;
+}
+
+.touch .container > section {
+	padding: 0;
+	min-height: 0;
+}
+
+#banner1
+{
+    background-image:url('_images/serv-images/service-banner.jpg');
+}
+    
+/* Similarly for all services pages */
+    
+    
+.midwrapper
+{
+    padding:2% 0%;
+}    
+
+.head
+{
+    clear:both;
+    float:none;
+    height:auto;
+    width:100%;
+    font-size:2em;
+    color:#000;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    
+}
+
+.large-content
+{
+     height:auto;
+    width:100%;
+    font-size:1.4em;
+    color:#666;
+    line-height:25px;
+	font-weight: 400;
+	text-align:justify;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+
+.small-content
+{
+    height:auto;
+    width:100%;
+    font-size:0.8em;
+    color:#000;
+    line-height:20px;
+	font-weight: 400;
+	text-align:justify;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+ #mcoe
+ {
+     width:75%;
+     max-width:450px;
+     height:auto;
+     display:block;
+     margin:20px auto;
+ }
+
+.left
+{
+    width:60%;
+    max-width:660px;
+    float:left;
+    
+}
+
+.right
+{
+    width:37%;
+    max-width:407px;
+    float:left;
+}
+
+p.tab
+{
+    padding-left:10px;
+}
+
+.right img
+{
+    max-width:400px;
+    height:auto;
+    margin:0 auto;
+    display:block;
+}
+
+.st-content p a
+{
+    font-size:1.1em;
+    font-weight:bold;
+}
+
+.st-content p a:link, p a:visited
+{
+   color:Black;
+   text-decoration:underline;
+}
+
+
+.st-content p a:hover, p a:active
+{
+   color:#666;
+}
+
+/* Flexible Slide-to-top Accordion Style*/
+.wrapper
+{
+	width:100%;
+	margin:50px auto;
+}
+.st-accordion
+{
+    width:100%;
+    min-width:270px;
+    margin: 0 auto;
+}
+.st-accordion ul li
+{
+    height: auto;
+    border-bottom: 1px solid #c7deef;
+    border-top:1px solid #c7deef;
+    overflow: hidden;
+}
+
+.st-accordion ul li > a{
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    text-shadow: 1px 1px 1px #fff;
+    font-size: 1.2em;
+    color:#000;
+    display: block;
+	position: relative;
+    line-height: 50px;
+	outline:none;
+    -webkit-transition:  color 0.2s ease-in-out;
+	-moz-transition:  color 0.2s ease-in-out;
+	-o-transition:  color 0.2s ease-in-out;
+	-ms-transition:  color 0.2s ease-in-out;
+	transition:  color 0.2s ease-in-out;
+}
+.st-accordion ul li > a span{
+	background: transparent url('_images/serv-images/acc-plus.png') no-repeat center center;
+	text-indent:-9000px;
+	width: 15px;
+	height: 15px;
+	position: absolute;
+	top: 50%;
+	right: 10px;
+	margin-top: -7px;
+	opacity:1;
+	-webkit-transition:  all 0.2s ease-in-out;
+	-moz-transition:  all 0.2s ease-in-out;
+	-o-transition:  all 0.2s ease-in-out;
+	-ms-transition:  all 0.2s ease-in-out;
+	transition:  all 0.2s ease-in-out;
+}
+.st-accordion ul li > a:hover{
+    color: #666;
+}
+
+.st-accordion ul li.st-open > a{
+    color: #666;
+}
+.st-accordion ul li.st-open > a span{
+	-webkit-transform:rotate(135deg);
+	-moz-transform:rotate(135deg);
+    transform:rotate(135deg);
+}
+.st-content
+{
+    height:auto;
+    padding: 5px 0px 30px 0px;
+}
+
+.st-content p
+{
+    font-size:  0.9em;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height:  20px;
+    padding: 0px 4px 15px 4px; 
+}
+
+
+.st-content ol
+{
+    list-style-type:decimal;
+}
+
+
+.st-content ol li
+{
+    border:none;
+    font-size:  0.9em;
+}
+
+.st-content ul li
+{
+    border:none;
+    font-size:  0.9em;
+}
+
+strong
+{
+    font-weight:700;
+}
+
+.text-wrap
+{
+    text-align:left;
+    width:20%;
+    height:auto;
+    min-height:180px;
+    float:left;
+    margin:0 5% 0% 0%;
+    display:block;
+}
+
+
+
+.text-wrap .large-content
+{
+    text-align:left;
+}
+
+
+.text-wrap .small-content
+{
+    text-align:left;
+}
+
+/* ######################################################  Small Desktop / Large Tablet View  #################################################### */
+
+
+@media only screen and (min-width:768px ) and (max-width:1099px) {
+	
+
+.left
+{
+    max-width:460px;
+}
+
+.right
+{
+    max-width:284px;
+}
+
+.right img
+{
+    max-width:284px;
+}    
+    
+.text-wrap
+{
+    width:28%;
+}
+
+	
+}	
+	
+
+/* ######################################################  Small Tablet View  #################################################### */
+
+	
+	
+@media only screen and (min-width:480px ) and (max-width:767px) {
+
+
+.head
+{
+    font-size:1.8em;
+}
+
+.large-content
+{
+    font-size:1.2em;
+}
+
+
+.small-content
+{
+    font-size:0.8em;
+}
+
+
+.left
+{
+    width:100%;
+    max-width:480px;
+}
+
+.right
+{
+    width:100%;
+    max-width:480px;
+}
+
+.right img
+{
+    max-width:300px;
+    margin:10px auto;
+    
+}
+
+
+.st-content p
+{
+    font-size:  0.8em;
+    padding: 0px 4px; 
+}
+
+.text-wrap
+{
+    width:45%;
+}
+
+
+	
+	
+}	
+
+
+	
+	
+/* ######################################################  Smartphone View  #################################################### */	
+
+
+@media only screen and (max-width:479px) {
+	
+
+.head
+{
+    font-size:1.6em;
+}
+
+.large-content
+{
+    font-size:1.1em;
+    line-height:20px;
+}
+
+
+.small-content
+{
+    font-size:0.7em;
+}
+
+
+.left
+{
+    width:100%;
+    max-width:320px;
+}
+
+.right
+{
+    width:100%;
+    max-width:320px;
+    
+}
+
+.right img
+{
+    max-width:300px;
+    margin:10px auto;
+}
+
+
+.st-accordion ul li > a
+{
+    font-size: 1em;
+      line-height: 30px;
+      padding:20px 30px 20px 0;
+}
+
+.st-content p
+{
+    font-size:  0.7em;
+    padding: 0px 4px; 
+}
+
+.text-wrap
+{
+    width:45%;
+ 
+}
+
+
+
+}

@@ -1,0 +1,821 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script>        document.cookie = 'resolution=' + Math.max(screen.width, screen.height) + '; path=/';</script>
+    <script src="js/css3-mediaqueries_src.min.js"></script>
+    <title>Home | Dover IIC</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <link rel='shortcut icon' type='image/x-icon' href='css/_images/favicon.ico' />
+    <link rel="stylesheet" media="screen" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" media="screen" type="text/css" href="css/main.css" />
+   
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="js/jquery-1.10.2.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <!-- Collapsable Menu -->
+    <script src="js/modernizr.custom.js"></script>
+    <!--  testimonial -->
+    <script type="text/javascript" src="js/jquery.carouFredSel-6.2.0-packed.js"></script>
+    <!--  circle hover effects -->
+    <script type="text/javascript" src="js/toucheffects.js"></script>
+    <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <!--  scrollToTop -->
+    <script type="text/javascript" src="js/scrolltopcontrol.js"></script>
+    <!--  main slideshow -->
+    <script type="text/javascript">
+        if (typeof jQuery == 'undefined') {
+            document.write(unescape('%3Cscript src="js/jquery-min.js" %3E%3C/script%3E'));
+        }
+    </script>
+    <script type="text/javascript" src="js/jquery.sequence-min.js"></script>
+    <script type="text/javascript" src="js/sequencejs-options.modern-slide-in.js"></script>
+    <script type="text/javascript">
+
+        /* header */
+
+        $(function () {
+            $(window).scroll(function () {
+                if ($(this).scrollTop() == 0) {
+                    $("#headerWrapper").css({ "padding-top": "15px" });
+
+                }
+                else {
+                    $("#headerWrapper").css({ "padding-top": "0px" });
+
+
+                }
+            });
+
+            /*stakeholders*/
+
+            $("#energy").click(function () {
+
+                if ($("#two").is(":visible") || $("#three").is(":visible") || $("#four").is(":visible")) {
+                    $("#one").show("slow");
+                    $("#two").hide("slow");
+                    $("#three").hide("slow");
+                    $("#four").hide("slow");
+
+                }
+
+            });
+
+
+            $("#engg").click(function () {
+                if ($("#one").is(":visible") || $("#three").is(":visible") || $("#four").is(":visible")) {
+                    $("#two").show("slow");
+                    $("#one").hide("slow");
+                    $("#three").hide("slow");
+                    $("#four").hide("slow");
+
+                }
+
+
+            });
+
+            $("#fluid").click(function () {
+                if ($("#one").is(":visible") || $("#two").is(":visible") || $("#four").is(":visible")) {
+                    $("#three").show("slow");
+                    $("#one").hide("slow");
+                    $("#two").hide("slow");
+                    $("#four").hide("slow");
+
+                }
+
+
+            });
+
+            $("#ref").click(function () {
+                if ($("#one").is(":visible") || $("#three").is(":visible") || $("#two").is(":visible")) {
+                    $("#four").show("slow");
+                    $("#one").hide("slow");
+                    $("#three").hide("slow");
+                    $("#two").hide("slow");
+
+                }
+
+
+            });
+
+
+
+            /*testimonials-carousel*/
+
+            $('#carousel').carouFredSel({
+                responsive: true,
+                items: {
+                    visible: 1,
+                    width: 900,
+                    height: 500
+                },
+                scroll: {
+                    duration: 1000,
+                    timeoutDuration: 5000,
+                    fx: 'uncover-fade'
+                },
+                pagination: '#pager'
+            });
+
+
+            /* Contact Form */
+
+            $("#show-form").click(function () {
+
+                $("#form").slideToggle()
+
+                $("#show-form").slideToggle("fast")
+                $("#close-button1").slideToggle("slow")
+                var elClose = $("#close-button1");
+                scrollToDiv(elClose, 135);
+
+                function scrollToDiv(element, navheight) {
+                    var offset = element.offset();
+                    var offsetTop = offset.top;
+                    var totalScroll = offsetTop - navheight;
+                    $('body,html').animate({
+                        scrollTop: totalScroll
+                    }, 500);
+                }
+
+
+
+            });
+
+            $("#close-button1").click(function () {
+                $("#form").slideToggle()
+                $("#show-form").slideToggle()
+                $("#close-button1").slideToggle()
+                var elWrapped = $("#sec");
+                scrollToDiv(elWrapped);
+
+                function scrollToDiv(element) {
+                    var offset = element.offset();
+                    var offsetTop = offset.top;
+                    $('body,html').animate({
+                        scrollTop: offsetTop
+                    }, 500);
+                }
+            });
+
+
+
+            /* MAP */
+
+            $("#map-img").click(function () {
+                $("#map").slideToggle('1500', "easeOutBounce", function () {
+
+                    var mapOptions = {
+                        zoom: 4,
+                        center: new google.maps.LatLng(12.9782549, 77.6646817)
+                    };
+
+                    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+                    var marker = new google.maps.Marker({
+                        position: map.getCenter(),
+                        map: map,
+                        title: 'Click to zoom'
+                    });
+                    map.setZoom(8);
+                    map.setCenter(marker.getPosition());
+                    google.maps.event.trigger(map, "resize");
+                })
+
+                $("#map-img").slideToggle()
+                $("#close-button").slideToggle()
+
+                var elWrapped = $("#close-button");
+                scrollToDiv(elWrapped, 130);
+
+                function scrollToDiv(element, navheight) {
+                    var offset = element.offset();
+                    var offsetTop = offset.top;
+                    var totalScroll = offsetTop - navheight;
+                    $('body,html').animate({
+                        scrollTop: totalScroll
+                    }, 500);
+                }
+
+
+            });
+
+            $("#close-button").click(function () {
+                $("#map").slideToggle()
+                $("#map-img").slideToggle()
+                $("#close-button").slideToggle()
+
+                var elWrapped = $("#sec6");
+                scrollToDiv(elWrapped);
+
+                function scrollToDiv(element) {
+                    var offset = element.offset();
+                    var offsetTop = offset.top;
+                    $('body,html').animate({
+                        scrollTop: offsetTop
+                    }, 500);
+                }
+
+
+            });
+
+
+
+        });
+
+      
+
+    </script>
+    <!-- Internal pages navigation -->
+    <script>
+        $(document).ready(function () {
+
+            $('#navigation #nav a').click(function () {
+
+                var el = $(this).attr('href');
+                var elWrapped = $(el);
+
+                scrollToDiv(elWrapped);
+
+                return false;
+
+            });
+
+            function scrollToDiv(element) {
+
+
+
+                var offset = element.offset();
+                var offsetTop = offset.top;
+
+                $('body,html').animate({
+                    scrollTop: offsetTop
+                }, 500);
+
+            }
+
+
+
+        });
+    </script>
+    <!-- EXTERNAL PAGES NAVIGATION -->
+    <script type="text/javascript">
+        function page1() {
+            window.location.href = '1-AG.html';
+        }
+
+        function page2() {
+            window.location.href = '2-PS.html';
+        }
+
+        function page3() {
+            window.location.href = '3-MCOE.html';
+        }
+
+        function page4() {
+            window.location.href = '4-EE.html';
+        }
+
+        function page5() {
+            window.location.href = '5-Sourcing.html';
+        }
+
+
+        
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+    <script type="text/javascript">
+        function initialize() {
+            setTimeout(function () {
+                var mapOptions = {
+                    zoom: 4,
+                    center: new google.maps.LatLng(12.978255, 77.664904)
+                };
+
+                var map = new google.maps.Map(document.getElementById('map'),
+      mapOptions);
+
+                var marker = new google.maps.Marker({
+                    position: map.getCenter(),
+                    map: map,
+                    title: 'Click to zoom'
+                });
+
+                google.maps.event.addListener(map, 'center_changed', function () {
+                    // 3 seconds after the center of the map has changed, pan back to the
+                    // marker.
+                    window.setTimeout(function () {
+                        map.panTo(marker.getPosition());
+                    }, 3000);
+                });
+
+                google.maps.event.addListener(marker, 'click', function () {
+                    map.setZoom(8);
+                    map.setCenter(marker.getPosition());
+                });
+            }, 500);
+        }
+
+        google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+</head>
+<body>
+    <div id="mainwrapper">
+        <div id="headerWrapper">
+            <div id="header">
+                <div id="logo">
+                    <a href="index.htm">
+                        <img alt="Dover IIC" src="css/_images/DIIC-logo.png" /></a>
+                </div> 
+                <div id="navigation">
+                    <div id="content">
+                        <a class="open" href="#nav">Menu</a>
+                        <ul id="nav">
+                            <li><a href="#sec2">About Us</a></li>
+                            <li><a href="#sec3">Services</a></li>
+                            <li><a href="#sec4">News</a></li>
+                            <li><a href="#sec5">Team</a></li>
+                            <li><a href="#sec6">Contact Us</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="not-header" >
+            <!-- PAGE 1 : HOME -->
+            <div id="page1">
+                <div id="topcontent">
+                    <div class="sequence-theme">
+                        <div id="sequence">
+                            <img class="sequence-prev" src="css/_images/arr_left.png" alt="Previous Frame" />
+                            <img class="sequence-next" src="css/_images/arr_right.png" alt="Next Frame" />
+                            <ul class="sequence-canvas contain">
+                                <li class="animate-in">
+                                    <h2 class="title">
+                                        We are the digital creative team</h2>
+                                    <h3 class="subtitle">
+                                        Making the web a better place</h3>
+                                    <div class="button b1 btn">
+                                        <button onclick="page1();" class="continue">
+                                            Know More</button>
+                                    </div>
+                                    <img id="slide1" src="css/_images/banner1-bg.jpg" class="bg" />
+                                </li>
+                                <li>
+                                    <h2 class="title">
+                                        Powerful mechanical design and analysis</h2>
+                                    <h3 class="subtitle">
+                                        Global competence center offering the best solutions</h3>
+                                    <div class="button b2 btn">
+                                        <button onclick="page3();" class="continue">
+                                            Know More</button>
+                                    </div>
+                                    <img id="slide2" src="css/_images/banner2-bg.jpg" class="bg" />
+                                </li>
+                                <li>
+                                    <h2 class="title">
+                                        Expertise in Electronics and Embedded domains</h2>
+                                    <h3 class="subtitle">
+                                        Embedded designs and development, PLC automation and PCB Design</h3>
+                                    <div class="button b3 btn">
+                                        <button onclick="page4();" class="continue">
+                                            Know More</button>
+                                    </div>
+                                    <img id="slide3" src="css/_images/banner3-bg.jpg" class="bg" />
+                                </li>
+                                <li>
+                                    <h2 class="title">
+                                        Cut your costs and minimize your risks</h2>
+                                    <h3 class="subtitle">
+                                        We build right strategic sourcing environment to your business</h3>
+                                    <div class="button b4 btn">
+                                        <button onclick="page5();" class="continue">
+                                            Know More</button>
+                                    </div>
+                                    <img id="slide4" src="css/_images/banner4-bg.jpg" class="bg" />
+                                </li>
+                            </ul>
+                            <ul class="sequence-pagination">
+                                <li>
+                                    <img src="css/_images/gray.jpg" alt="Page 1" /></li>
+                                <li>
+                                    <img src="css/_images/gray.jpg" alt="Page 2" /></li>
+                                <li>
+                                    <img src="css/_images/gray.jpg" alt="Page 3" /></li>
+                                <li>
+                                    <img src="css/_images/gray.jpg" alt="Page 4" /></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div id="midcontainer">
+                    <div id="midcontent">
+                        <h2>
+                            Welcome to Dover India Innovation Center</h2>
+                        <br />
+                        <p>
+                            India Innovation Center (IIC) , as a trusted business partner, leverages a powerful
+                            blend of the best industry-proven practices and leading standards, refined business
+                            acumen and deep market understanding, profound technical skills and extensive hands-on
+                            experience to meet the toughest challenges that our customers face. IIC offers innovative
+                            solutions to customers, which help them compete successfully in the dynamically
+                            changing marketplace and achieve the maximum return on investment.</p>
+                        <div id="services">
+                            <section class="main">
+			
+				<ul class="ch-grid">
+					<li><a href="1-AG.html">
+						<div class="ch-item ch-img-1 ch-1">
+							<div class="ch-info">
+								<h4>Application Software</h4>
+							</div>
+						</div>
+                        </a>
+					</li>
+					<li><a href="2-PS.html">
+						<div class="ch-item ch-img-2 ch-2">
+							<div class="ch-info">
+								<h4>Product<br />Software</h4>
+							</div>
+						</div>
+                        </a>
+					</li>
+					<li><a href="3-MCOE.html">
+						<div class="ch-item ch-img-3 ch-3">
+							<div class="ch-info">
+								<h4>Mechanical Design & Analysis</h4>
+							</div>
+						</div>
+                        </a>
+					</li>
+
+                    <li><a href="4-EE.html">
+						<div class="ch-item ch-img-4 ch-4">
+							<div class="ch-info">
+								<h4>Electrical, Electronics & Embedded</h4>
+							</div>
+						</div>
+                        </a>
+					</li>
+
+                    <li><a href="5-Sourcing.html">
+						<div class="ch-item ch-img-5 ch-5">
+							<div class="ch-info">
+								<h4>Sourcing</h4>
+							</div>
+						</div>
+                        </a>
+					</li>
+
+				</ul>
+				
+			</section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- PAGE 2 : ABOUT US -->
+            <span class="anchor" id="sec2"></span>
+            <div id="page2" class="page">
+                <div id="about_header">
+                    <h1 class="page-header">
+                        ABOUT US</h1>
+                </div>
+                <div id="about_content" class="page-content">
+                    <p>
+                        India Innovation Center, formerly Dover Solutions India, part of Dover India Pvt
+                        Ltd (a Dover Corporation company), is a multi-competence center providing end-to-end
+                        solutions to the stake holders.</p>
+                    <p>
+                        Started in 2003 as a software development centre for a group of Dover Companies,
+                        over a period of time IIC has grown providing value added services in the areas
+                        of Product Software Development, Application Development for Desktop and Web, Mechanical
+                        Engineering Design and Analysis, Electronics and Microwave Design, Sourcing, Technical
+                        Documentation and Field Support. IIC, as a trusted business partner, leverages a
+                        powerful blend of the best industry-proven practices and leading standards, refined
+                        business acumen and deep market understanding, profound technical skills and extensive
+                        hands-on experience to meet the toughest challenges that our customers face. IIC
+                        offers innovative solutions to customers, which help them compete successfully in
+                        the dynamically changing marketplace and achieve the maximum return on investment.
+                    </p>
+                </div>
+                <div id="stakeholder">
+                    <h1>
+                        STAKEHOLDERS</h1>
+                    <!-- Expanding Preview  -->
+                    <div id="maingrid">
+                        <nav class="stake-nav">
+                        <a id="energy" href="JavaScript:;" onclick="toggle1();">Energy</a>
+                        <a id="engg" href="JavaScript:;" onclick="toggle2();">Engineering Systems</a>
+                        <a id="fluid" href="JavaScript:;" onclick="toggle3();">Fluids</a>
+                        <a id ="ref" href="JavaScript:;" onclick="toggle4();">Refrigeration & Food Equipment</a>      
+                    </nav>
+                        <div id="one" class="stake">
+                            <img src="css/_images/thumbs/energy/1.jpg" alt="Cook" />
+                            <img src="css/_images/thumbs/energy/2.jpg" alt="Dover" />
+                            <img src="css/_images/thumbs/energy/3.jpg" alt="Quartzdyne" />
+                            <img src="css/_images/thumbs/energy/4.jpg" alt="TWG" />
+                            <img src="css/_images/thumbs/energy/5.jpg" alt="US Synthetic" />
+                            <img src="css/_images/thumbs/energy/6.jpg" alt="Waukesha" />
+                        </div>
+                        <div id="two" class="hide stake">
+                            <img src="css/_images/thumbs/ES/1.jpg" alt="DO" />
+                            <img src="css/_images/thumbs/ES/2.jpg" alt="DestaCo" />
+                            <img src="css/_images/thumbs/ES/3.jpg" alt="ESG" />
+                            <img src="css/_images/thumbs/ES/4.jpg" alt="Markem Imaje" />
+                            <img src="css/_images/thumbs/ES/5.jpg" alt="VSG" />
+                            <img src="css/_images/thumbs/ES/6.jpg" alt="PMI" />
+                            <img src="css/_images/thumbs/ES/7.jpg" alt="MPG" />
+                            <img src="css/_images/thumbs/ES/8.jpg" alt="OKInternational" />
+                        </div>
+                        <div id="three" class="hide stake">
+                            <img src="css/_images/thumbs/Fluids/1.jpg" alt="Hydro" />
+                            <img src="css/_images/thumbs/Fluids/2.jpg" alt="PSG" />
+                            <img src="css/_images/thumbs/Fluids/3.jpg" alt="PDQ" />
+                            <img src="css/_images/thumbs/Fluids/4.jpg" alt="CPC" />
+                            <img src="css/_images/thumbs/Fluids/5.jpg" alt="OPW" />
+                        </div>
+                        <div id="four" class="hide stake">
+                            <img src="css/_images/thumbs/RFE/1.jpg" alt="Tipper Tie" />
+                            <img src="css/_images/thumbs/RFE/2.jpg" alt="Swep" />
+                            <img src="css/_images/thumbs/RFE/3.jpg" alt="Unified brands" />
+                            <img src="css/_images/thumbs/RFE/4.jpg" alt="Hillphoenix" />
+                            <img src="css/_images/thumbs/RFE/5.jpg" alt="BPM Inc." />
+                        </div>
+                    </div>
+                </div>
+                <div id="testimonial">
+                    <div id="test-content">
+                        <h1>
+                            TESTIMONIALS</h1>
+                        <div id="carousel-wrapper">
+                            <div id="carousel">
+                                <div>
+                                    <p>
+                                        IIC is fantastic to work with. What set them apart was their responsiveness - more
+                                        than just working on our project, IIC was available throughout the entire process
+                                        providing input and suggesting on how to improve & optimize.
+                                        <br />
+                                        <br />
+                                        <span class="test-name">Jody Hurley,
+                                        <br />
+                                        Engineering Services Manager,
+                                        <br />
+                                        Heil Environmental.
+                                        </span>
+                                    </p>
+                                </div>
+                                <div>
+                                    <p>
+                                        I would like to extend my sincerest thanks to the team for coordinating and supporting
+                                        our latest round of negotiations and site visits in India. We were able to sign
+                                        two MOUs that will allow OPW-FTG to start doing business almost immediately.
+                                        <br />
+                                        <br />
+                                        <span class="test-name">Eric Forman,
+                                        <br />
+                                        Materials Manager,
+                                        <br />
+                                        Dover Corporation
+                                        </span>
+                                    </p>
+                                </div>
+                                <div>
+                                    <p>
+                                        Based upon our successes to date, OPW FMS will continue to invest and grow the IIC based engineering team.
+                                        <br />
+                                        <br />
+                                        <span class="test-name">Tony Mills, 
+                                        <br />
+                                        Director of Engineering, 
+                                        <br />
+                                        OPWFMS
+                                        </span>
+                                    </p>
+                                </div>
+                                
+                            </div>
+                            <div id="pager">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- PAGE 3 SERVICES -->
+            <span class="anchor" id="sec3"></span>
+            <div id="page3" class="page">
+                <div id="serv-header">
+                    <h1 class="page-header">
+                        SERVICES</h1>
+                </div>
+                <div id="serv-content" class="page-content">
+                    <section id="service-holder">
+            <ul>
+            <li id="s1"><div class="button b6"><button onclick="page1();" id="Button1" class="continue">
+                           Know More</button></div></li>
+            <li id="s2"><div class="button b6"><button onclick="page2();" id="Button2" class="continue">
+                           Know More</button></div></li>
+            <li id="s3"><div class="button b6"><button onclick="page3();" id="Button3" class="continue">
+                           Know More</button></div></li>
+            <li id="s4"><div class="button b6"><button onclick="page4();" id="Button4" class="continue">
+                           Know More</button></div></li>
+            <li id="s5"><div class="button b6"><button onclick="page5();" id="Button5" class="continue">
+                           Know More</button></div></li>
+            </ul>
+            </section>
+                </div>
+            </div>
+            <!-- PAGE 4 NEWS -->
+            <span class="anchor" id="sec4"></span>
+            <div id="page4" class="page">
+                <div id="news-header">
+                    <h1 class="page-header">
+                        NEWS</h1>
+                </div>
+                <div id="news-content" class="page-content">
+                    <img src="css/_images/XCED.png" />
+                    <h3>
+                        XCED-2014 DOVER INDIA CONFERENCE - BANGALORE<br />
+                        23-25 April, 2014</h3>
+                </div>
+            </div>
+            <!-- PAGE 5 TEAM -->
+            <span class="anchor" id="sec5"></span>
+            <div id="page5" class="page">
+                <div id="team-header">
+                    <h1 class="page-header">
+                        MEET THE TEAM</h1>
+                </div>
+                <div id="team-content" class="page-content">
+                    <p>
+                        We are working hard every day to create a world class team of people and an environment
+                        where we can create industry leading work. Our passionate, close-knit family always
+                        strives to push the boundaries of what's possible and predict the future of technology.
+                    </p>
+                    <div id="members">
+                        <ul class="grid cs-style-5">
+                            <li>
+                                <figure>
+						<img src="css/_images/vishy.jpg" alt="img04">
+						<figcaption>
+							<h3>Vishy Subramanian</h3>
+							<span>Director</span>
+							<a href="mailto:vsubramanian@dovertech.co.in" target="_top"><img src="css/_images/email.png" /></a>
+						</figcaption>
+					</figure>
+                            </li>
+                            <li>
+                                <figure>
+						<img src="css/_images/alok.jpg" alt="img05">
+						<figcaption>
+							<h3>Alok Tayal</h3>
+							<span>Head – Software Development</span>
+							<a href="mailto:t.alok@dovertech.co.in" target="_top"><img src="css/_images/email.png" /></a>
+						</figcaption>
+					</figure>
+                            </li>
+                            <li>
+                                <figure>
+						<img src="css/_images/badri.jpg" alt="img01">
+						<figcaption>
+							<h3>Badari</h3>
+							<span>Head – Mechanical Center of Excellence</span>
+							<a href="mailto:bbada@dovertech.co.in" target="_top"><img src="css/_images/email.png" /></a>
+						</figcaption>
+					</figure>
+                            </li>
+                            <li>
+                                <figure>
+						<img src="css/_images/kapil.jpg" alt="img02">
+						<figcaption>
+							<h3>Kapil Pandey</h3>
+							<span>Head – EE-Excellence Center</span>
+							<a href="mailto:kpandey@dovertech.co.in" target="_top"><img src="css/_images/email.png" /></a>
+						</figcaption>
+					</figure>
+                            </li>
+                            <li>
+                                <figure>
+						<img src="css/_images/vasu.jpg" alt="img06">
+						<figcaption>
+							<h3>Srinivasu Duddu</h3>
+							<span>Head - Sourcing</span>
+							<a href="mailto:sduddu@dovercorp.com" target="_top"><img src="css/_images/email.png" /></a>
+						</figcaption>
+					</figure>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- PAGE 6 CONTACT -->
+            <span class="anchor" id="sec6"></span>
+            <div id="page6" class="page">
+                <div id="contact-container">
+                    <section id="contact-info">
+                    <ul>
+                    <li>
+                     <div id="phone">
+                        <img src="css/_images/phone.png" />
+                        <p>
+                            +91 80 41123421 - 26<br />
+                            +91 80 41123428
+                        </p>
+                    </div>
+                    </li>
+                    <li>
+                     <div id="mail">
+                        <img src="css/_images/chat.png" />
+                        <p>
+                            info@dovertech.co.in
+                        </p>
+                    </div>
+                    </li>
+                    <li>
+                     <div id="loc">
+                        <img src="css/_images/location.png" />
+                        <p>
+                            Bagmane Tech Park,<br />
+                            C.V. Raman Nagar,<br />
+                            Bangalore-93
+                        </p>
+                    </div>
+                    </li>
+                    </ul>
+                    </section>
+                    <div id="contact-form-wrapper">
+                        <div id="close-button1">
+                        </div>
+                        <div id="send-button">
+                            <button id="show-form" class="button">
+                                Sign up for Newsletters</button>
+                        </div>
+                        <div id="form">
+                            <div id="form-main">
+                                <div id="form-div">
+                                    <form class="form" id="form1" action="mailto:info@dovertech.co.in" method="post">
+                                    <p class="name">
+                                        <input autofocus name="name" type="text" class="validate[required,custom[onlyLetter],length[0,100]] feedback-input"
+                                            placeholder="Name" id="name" required />
+                                    </p>
+                                    <p class="email">
+                                        <input name="email" type="email" class="validate[required,custom[email]] feedback-input"
+                                            id="email" placeholder="Email" required />
+                                    </p>
+                                    <p class="text">
+                                        <textarea name="text" class="validate[required,length[6,300]] feedback-input" id="comment"
+                                            placeholder="Comment" required></textarea>
+                                    </p>
+                                    <div class="submit">
+                                        <input type="submit" value="SEND" id="button-blue" />
+                                        <div class="ease">
+                                        </div>
+                                    </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="map-wrapper">
+                    <div id="close-button">
+                    </div>
+                    <div id="map-img">
+                       
+                    </div>
+                    <div id="map">
+                    </div>
+                </div>
+            </div>
+            <!-- FOOTER -->
+            <div id="footer">
+                <div id="footcontainer">
+                    <div id="foot1">
+                        <small>© 2014 Dover India Innovation Center</small>
+                    </div>
+                    <div id="foot2">
+                            <ul>
+                                <li><a id="f1" href="http://www.dovercorporation.com/" target="_blank" title="Visit Dover Corporation">
+                                    DoverCorp</a></li>
+                                <li><a id="f2" href="http://www.linkedin.com/company/dovercorp/careers" target="_blank"
+                                    title="Join us on LinkedIn">LinkedIn</a></li>
+                                <li><a id="f3" href="http://www.facebook.com/pages/Dover-India-Innovation-Center/117427325069962"
+                                    target="_blank" title="Join us on Facebook">Facebook</a></li>
+                                <li><a id="f4" href="http://www.youtube.com/DoverCorporation" target="_blank" title="Follow us on Youtube">
+                                    Youtube</a></li>
+                                <li><a id="f5" href="https://twitter.com/DoverIIC" target="_blank" title="Follow us on Twitter">
+                                    Twitter</a></li>
+                            </ul>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/jquery.pageslide.min.js"></script>
+    <script>
+        $(".open").pageslide();
+    </script>
+</body>
+</html>
